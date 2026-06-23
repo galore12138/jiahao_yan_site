@@ -1,0 +1,167 @@
+{{ define "main" }}
+<div class="page-shell">
+  <section class="hero" aria-labelledby="hero-name">
+    <div class="portrait-wrap">
+      <img class="portrait" src="{{ site.Params.photo | relURL }}" alt="Portrait of Jiahao Yan" width="320" height="320">
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">{{ site.Params.role }}</p>
+      <h1 id="hero-name">Jiahao Yan</h1>
+      <p class="affiliation">{{ site.Params.school }}<br>{{ site.Params.university }}</p>
+      <p class="tagline">{{ site.Params.tagline }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ site.Params.cv | relURL }}">CV (PDF)</a>
+        <a class="button button-secondary" href="mailto:{{ site.Params.email }}">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Profile</p>
+      <h2>About</h2>
+    </div>
+    <div class="prose">{{ .Content }}</div>
+    <div class="interest-list" aria-label="Research interests">
+      <span>Supply chain management</span>
+      <span>Artificial intelligence</span>
+      <span>Corporate governance</span>
+      <span>Empirical research</span>
+      <span>Machine learning</span>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Scholarship</p>
+      <h2>Research</h2>
+    </div>
+
+    {{ $underReview := where site.Data.papers "status" "under review" }}
+    {{ if $underReview }}
+      <h3>Under Review</h3>
+      <div class="featured-grid">
+        {{ range $underReview }}
+          <article class="featured-paper">
+            <div class="paper-topline">
+              <span class="status">{{ .status }}</span>
+              <span class="meta">{{ .year }}</span>
+            </div>
+            <h4>
+              {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+            </h4>
+            <p class="paper-authors">{{ .authors }}</p>
+            {{ with .description }}<p>{{ . }}</p>{{ end }}
+            {{ with .venue }}<p class="meta">Under review at {{ . }}</p>{{ end }}
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ $working := where site.Data.papers "status" "working paper" }}
+    {{ if $working }}
+      <h3>Working Papers</h3>
+      <div class="paper-list">
+        {{ range $working }}
+          <article class="paper-item">
+            <div class="paper-topline"><span class="status">{{ .status }}</span><span class="meta">{{ .year }}</span></div>
+            <h4>{{ .title }}</h4>
+            <p class="paper-authors">{{ .authors }}</p>
+            {{ with .description }}<p>{{ . }}</p>{{ end }}
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{ $published := where site.Data.papers "status" "published" }}
+    {{ $conference := where site.Data.papers "status" "conference paper" }}
+    {{ if or $published $conference }}
+      <h3>Publications & Conference Papers</h3>
+      <div class="paper-list">
+        {{ range $published }}
+          <article class="paper-item">
+            <div class="paper-topline"><span class="status">{{ .status }}</span><span class="meta">{{ .year }}</span></div>
+            <h4>
+              {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+            </h4>
+            <p class="paper-authors">{{ .authors }}</p>
+            <p class="meta">{{ .venue }}</p>
+          </article>
+        {{ end }}
+        {{ range $conference }}
+          <article class="paper-item">
+            <div class="paper-topline"><span class="status">{{ .status }}</span><span class="meta">{{ .year }}</span></div>
+            <h4>
+              {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+            </h4>
+            <p class="paper-authors">{{ .authors }}</p>
+            <p class="meta">{{ .venue }}</p>
+          </article>
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+
+  <section id="experience" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Background</p>
+      <h2>Education & Experience</h2>
+    </div>
+    <div class="split-grid">
+      <div>
+        <h3>Education</h3>
+        <div class="timeline">
+          {{ range site.Data.education }}
+            <article class="timeline-item">
+              <p class="meta">{{ .period }}</p>
+              <h4>{{ .degree }}</h4>
+              <p>{{ .institution }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+      <div>
+        <h3>Student Support</h3>
+        <div class="timeline">
+          {{ range site.Data.teaching }}
+            <article class="timeline-item">
+              <p class="meta">{{ .term }}</p>
+              <h4>{{ .role }}</h4>
+              <p>{{ .institution }}</p>
+              {{ with .description }}<p>{{ . }}</p>{{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Recognition</p>
+      <h2>Awards</h2>
+    </div>
+    <div class="award-list">
+      {{ range site.Data.awards }}
+        <div class="award-item">
+          <span class="award-year">{{ .year }}</span>
+          <div><strong>{{ .name }}</strong><span>{{ .institution }}</span></div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Contact</h2>
+      <p>I welcome conversations about supply-chain research, artificial intelligence, and corporate governance.</p>
+    </div>
+    <a class="contact-link" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+  </section>
+
+  <section class="personal-note" aria-label="Personal interests">
+    <p><strong>Beyond research:</strong> badminton, football, and photography.</p>
+  </section>
+</div>
+{{ end }}
