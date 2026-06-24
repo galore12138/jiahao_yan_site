@@ -8,7 +8,7 @@ Edit `data/papers.yaml`. Copy an existing entry and update its fields:
 
 ```yaml
 - title: "Paper title"
-  authors: "Jiahao Yan and Coauthor Name"
+  authors: "Jiahao YAN and Coauthor Name"
   year: 2026
   status: "working paper"
   venue: ""
@@ -73,4 +73,3 @@ Open <http://localhost:1313/jiahao_yan_site/>. Stop the preview with `Ctrl+C`.
 ## Publishing
 
 Pushing to `main` triggers the GitHub Actions workflow. GitHub Pages must be set to use **GitHub Actions** under repository **Settings → Pages**. After that, updates usually appear within a few minutes.
-

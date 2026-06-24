@@ -1,11 +1,11 @@
 baseURL: "https://galore12138.github.io/jiahao_yan_site/"
-title: "Jiahao Yan"
+title: "Jiahao YAN"
 languageCode: "en-us"
 enableRobotsTXT: true
 
 params:
   description: "PhD Candidate, School of Management, Northwestern Polytechnical University"
-  author: "Jiahao Yan"
+  author: "Jiahao YAN"
   email: "galore1110@mail.nwpu.edu.cn"
   tagline: "I study corporate governance related to supply chains and artificial intelligence."
   role: "PhD Candidate"
@@ -39,4 +39,3 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
