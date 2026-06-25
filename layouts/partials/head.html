@@ -1,18 +1,47 @@
-<meta charset="utf-8">
+﻿<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>{{ if .IsHome }}{{ site.Title }} · Academic Website{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+{{ $description := cond (ne .Description "") .Description site.Params.description }}
+{{ $title := cond .IsHome (printf "%s | Academic Website" site.Title) (printf "%s | %s" .Title site.Title) }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
 <meta name="author" content="{{ site.Params.author }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+{{ with site.Params.keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
+<meta name="robots" content="index, follow">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ "images/photo.jpg" | absURL }}">
+<meta property="og:image:alt" content="Portrait of {{ site.Params.author }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ "images/photo.jpg" | absURL }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
-
+{{ if .IsHome }}
+{{ $person := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" site.Params.author
+  "alternateName" (slice "YAN Jiahao" "Jiahao Yan")
+  "url" site.BaseURL
+  "image" ("images/photo.jpg" | absURL)
+  "email" (printf "mailto:%s" site.Params.email)
+  "jobTitle" site.Params.role
+  "affiliation" (dict "@type" "CollegeOrUniversity" "name" site.Params.university)
+  "worksFor" (dict "@type" "CollegeOrUniversity" "name" site.Params.university)
+  "alumniOf" (dict "@type" "CollegeOrUniversity" "name" site.Params.university)
+  "description" site.Params.description
+  "knowsAbout" (slice "Corporate governance" "Supply chains" "Artificial intelligence" "Firm behavior" "Total factor productivity" "Corporate financialization")
+  "sameAs" site.Params.sameAs
+}}
+<script type="application/ld+json">{{ $person | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ end }}

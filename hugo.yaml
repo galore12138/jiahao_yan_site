@@ -1,10 +1,10 @@
-baseURL: "https://galore12138.github.io/jiahao_yan_site/"
+﻿baseURL: "https://galore12138.github.io/jiahao_yan_site/"
 title: "Jiahao YAN"
 languageCode: "en-us"
 enableRobotsTXT: true
 
 params:
-  description: "PhD Candidate, School of Management, Northwestern Polytechnical University"
+  description: "Jiahao YAN is a PhD Candidate in the School of Management at Northwestern Polytechnical University, researching corporate governance, supply chains, artificial intelligence, and firm behavior."
   author: "Jiahao YAN"
   email: "galore1110@mail.nwpu.edu.cn"
   tagline: "I study corporate governance related to supply chains and artificial intelligence."
@@ -13,6 +13,19 @@ params:
   university: "Northwestern Polytechnical University"
   photo: "images/photo.jpg"
   cv: "files/jiahao-yan-cv.pdf"
+  keywords:
+    - "Jiahao YAN"
+    - "YAN Jiahao"
+    - "Jiahao Yan"
+    - "Northwestern Polytechnical University"
+    - "corporate governance"
+    - "supply chains"
+    - "artificial intelligence"
+    - "firm behavior"
+    - "total factor productivity"
+    - "corporate financialization"
+  sameAs:
+    - "https://galore12138.github.io/jiahao_yan_site/"
 
 menu:
   main:
