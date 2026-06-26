@@ -108,11 +108,11 @@ img { max-width: 100%; }
 .portrait {
   position: relative;
   display: block;
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: 58% 38%;
   background: #fff;
   border: 7px solid var(--color-bg);
   box-shadow: var(--shadow-soft);
