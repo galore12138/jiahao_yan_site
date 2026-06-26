@@ -70,9 +70,9 @@ languages:
   zh:
     languageName: "中文"
     weight: 2
-    title: "Jiahao YAN 闫家豪"
+    title: "Jiahao YAN 焉嘉豪"
     params:
-      description: "闫家豪，西北工业大学管理学院博士研究生，研究方向包括公司治理、供应链、人工智能与企业行为。"
+      description: "焉嘉豪，西北工业大学管理学院博士研究生，研究方向包括公司治理、供应链、人工智能与企业行为。"
       author: "Jiahao YAN"
       role: "博士研究生"
       school: "管理学院"

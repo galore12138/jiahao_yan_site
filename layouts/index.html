@@ -3,7 +3,7 @@
 <div class="page-shell">
   <section class="hero" aria-labelledby="hero-name">
     <div class="portrait-wrap">
-      <img class="portrait" src="{{ site.Params.photo | relURL }}" alt="{{ if $isZH }}Jiahao YAN 闫家豪头像{{ else }}Portrait of Jiahao YAN{{ end }}" width="320" height="320">
+      <img class="portrait" src="{{ site.Params.photo | relURL }}" alt="{{ if $isZH }}Jiahao YAN 焉嘉豪头像{{ else }}Portrait of Jiahao YAN{{ end }}" width="320" height="320">
     </div>
     <div class="hero-copy">
       <p class="eyebrow">{{ site.Params.role }}</p>
@@ -55,6 +55,8 @@
       <div class="featured-grid">
         {{ range $underReview }}
           {{ $paperTitle := .title }}{{ if and $isZH .title_zh }}{{ $paperTitle = .title_zh }}{{ end }}
+          {{ $paperAuthors := .authors }}{{ if and $isZH .authors_zh }}{{ $paperAuthors = .authors_zh }}{{ end }}
+          {{ $paperVenue := .venue }}{{ if and $isZH .venue_zh }}{{ $paperVenue = .venue_zh }}{{ end }}
           <article class="featured-paper">
             <div class="paper-topline">
               <span class="status">{{ if $isZH }}审稿中{{ else }}{{ .status }}{{ end }}</span>
@@ -63,9 +65,9 @@
             <h4>
               {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ $paperTitle }}</a>{{ else }}{{ $paperTitle }}{{ end }}
             </h4>
-            <p class="paper-authors">{{ .authors }}</p>
+            <p class="paper-authors">{{ $paperAuthors }}</p>
             {{ with .description }}<p>{{ . }}</p>{{ end }}
-            {{ with .venue }}<p class="meta">{{ if $isZH }}投稿至 {{ . }}{{ else }}Under review at {{ . }}{{ end }}</p>{{ end }}
+            {{ with $paperVenue }}<p class="meta">{{ if $isZH }}投稿至 {{ . }}{{ else }}Under review at {{ . }}{{ end }}</p>{{ end }}
           </article>
         {{ end }}
       </div>
@@ -77,10 +79,11 @@
       <div class="paper-list">
         {{ range $working }}
           {{ $paperTitle := .title }}{{ if and $isZH .title_zh }}{{ $paperTitle = .title_zh }}{{ end }}
+          {{ $paperAuthors := .authors }}{{ if and $isZH .authors_zh }}{{ $paperAuthors = .authors_zh }}{{ end }}
           <article class="paper-item">
             <div class="paper-topline"><span class="status">{{ if $isZH }}工作论文{{ else }}{{ .status }}{{ end }}</span><span class="meta">{{ .year }}</span></div>
             <h4>{{ $paperTitle }}</h4>
-            <p class="paper-authors">{{ .authors }}</p>
+            <p class="paper-authors">{{ $paperAuthors }}</p>
             {{ with .description }}<p>{{ . }}</p>{{ end }}
           </article>
         {{ end }}
@@ -94,24 +97,28 @@
       <div class="paper-list">
         {{ range $published }}
           {{ $paperTitle := .title }}{{ if and $isZH .title_zh }}{{ $paperTitle = .title_zh }}{{ end }}
+          {{ $paperAuthors := .authors }}{{ if and $isZH .authors_zh }}{{ $paperAuthors = .authors_zh }}{{ end }}
+          {{ $paperVenue := .venue }}{{ if and $isZH .venue_zh }}{{ $paperVenue = .venue_zh }}{{ end }}
           <article class="paper-item">
             <div class="paper-topline"><span class="status">{{ if $isZH }}已发表{{ else }}{{ .status }}{{ end }}</span><span class="meta">{{ .year }}</span></div>
             <h4>
               {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ $paperTitle }}</a>{{ else }}{{ $paperTitle }}{{ end }}
             </h4>
-            <p class="paper-authors">{{ .authors }}</p>
-            <p class="meta">{{ .venue }}</p>
+            <p class="paper-authors">{{ $paperAuthors }}</p>
+            <p class="meta">{{ $paperVenue }}</p>
           </article>
         {{ end }}
         {{ range $conference }}
           {{ $paperTitle := .title }}{{ if and $isZH .title_zh }}{{ $paperTitle = .title_zh }}{{ end }}
+          {{ $paperAuthors := .authors }}{{ if and $isZH .authors_zh }}{{ $paperAuthors = .authors_zh }}{{ end }}
+          {{ $paperVenue := .venue }}{{ if and $isZH .venue_zh }}{{ $paperVenue = .venue_zh }}{{ end }}
           <article class="paper-item">
             <div class="paper-topline"><span class="status">{{ if $isZH }}会议论文{{ else }}{{ .status }}{{ end }}</span><span class="meta">{{ .year }}</span></div>
             <h4>
               {{ if .link }}<a href="{{ .link }}" target="_blank" rel="noopener">{{ $paperTitle }}</a>{{ else }}{{ $paperTitle }}{{ end }}
             </h4>
-            <p class="paper-authors">{{ .authors }}</p>
-            <p class="meta">{{ .venue }}</p>
+            <p class="paper-authors">{{ $paperAuthors }}</p>
+            <p class="meta">{{ $paperVenue }}</p>
           </article>
         {{ end }}
       </div>
