@@ -96,8 +96,8 @@ img { max-width: 100%; }
 }
 
 .hero {
-  min-height: calc(78vh - var(--nav-height));
-  padding: 6.5rem 0 5.5rem;
+  min-height: calc(70vh - var(--nav-height));
+  padding: 5.2rem 0 4.2rem;
   display: grid;
   grid-template-columns: 240px 1fr;
   align-items: center;
@@ -190,12 +190,12 @@ img { max-width: 100%; }
 .button-secondary { color: var(--color-accent); }
 
 .section {
-  padding: 5rem 0;
+  padding: 3.8rem 0;
   border-top: 1px solid var(--color-border);
   scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
-.section-heading { margin-bottom: 2.25rem; }
+.section-heading { margin-bottom: 1.7rem; }
 .section h2, .contact-section h2 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
@@ -206,7 +206,7 @@ img { max-width: 100%; }
 }
 
 .section h3 {
-  margin: 3rem 0 1.1rem;
+  margin: 2.2rem 0 0.9rem;
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -279,7 +279,7 @@ img { max-width: 100%; }
 }
 .contact-section p:not(.eyebrow) { max-width: 520px; margin-bottom: 0; }
 .contact-link { font-weight: 700; white-space: nowrap; }
-.personal-note { padding: 1.5rem 0 4rem; color: var(--color-text-muted); font-size: 0.9rem; }
+.personal-note { padding: 1rem 0 2.8rem; color: var(--color-text-muted); font-size: 0.9rem; }
 
 .site-footer { border-top: 1px solid var(--color-border); color: var(--color-text-muted); }
 .footer-inner {
@@ -287,7 +287,7 @@ img { max-width: 100%; }
   margin: 0 auto;
   padding: 1.6rem 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   font-size: 0.78rem;
 }
@@ -326,14 +326,14 @@ img { max-width: 100%; }
   .mobile-menu-panel a:last-child { border-bottom: 0; }
   .hero {
     min-height: auto;
-    padding: 4rem 0;
+    padding: 3.2rem 0;
     grid-template-columns: 1fr;
     gap: 2.4rem;
     text-align: center;
   }
   .portrait-wrap { margin: 0 auto; }
   .hero-actions { justify-content: center; }
-  .section { padding: 4rem 0; }
+  .section { padding: 3rem 0; }
   .split-grid, .contact-section { grid-template-columns: 1fr; }
   .contact-link { white-space: normal; }
   .footer-inner { flex-direction: column; }
