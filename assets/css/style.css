@@ -93,8 +93,8 @@ img { max-width: 100%; }
 
 .portrait-wrap {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
 }
 
 .portrait-wrap::before {
@@ -108,8 +108,8 @@ img { max-width: 100%; }
 .portrait {
   position: relative;
   display: block;
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   object-fit: contain;
   object-position: center;
