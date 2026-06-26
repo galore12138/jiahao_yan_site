@@ -1,6 +1,9 @@
 - course: "Undergraduate Student Affairs Management"
   role: "Counselor"
+  role_zh: "辅导员"
   institution: "School of Electronics and Information, Northwestern Polytechnical University"
+  institution_zh: "西北工业大学电子信息学院"
   term: "July 2023 – April 2025"
+  term_zh: "2023 年 7 月 – 2025 年 4 月"
   description: "Comprehensive evaluation, academic guidance, and student support."
-
+  description_zh: "负责综合测评、学业指导与学生支持工作。"

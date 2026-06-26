@@ -1,20 +1,30 @@
 - year: 2025
   name: "Outstanding Graduate Student Award"
+  name_zh: "优秀研究生"
   institution: "Northwestern Polytechnical University"
+  institution_zh: "西北工业大学"
 - year: 2025
   name: "Second-Class University Scholarship"
+  name_zh: "校级二等奖学金"
   institution: "Northwestern Polytechnical University"
+  institution_zh: "西北工业大学"
 - year: 2025
   name: "First-Class Academic Scholarship"
+  name_zh: "一等学业奖学金"
   institution: "Northwestern Polytechnical University"
+  institution_zh: "西北工业大学"
 - year: 2021
   name: "Outstanding Individual Award, Graduate Student Union"
+  name_zh: "研究生会优秀个人"
   institution: "Northwestern Polytechnical University"
+  institution_zh: "西北工业大学"
 - year: 2020
   name: "First-Class Freshman Scholarship"
+  name_zh: "新生一等奖学金"
   institution: "Northwestern Polytechnical University"
+  institution_zh: "西北工业大学"
 - year: 2025
   name: "First-Class Freshman Scholarship"
+  name_zh: "新生一等奖学金"
   institution: "Northwestern Polytechnical University"
-
-
+  institution_zh: "西北工业大学"

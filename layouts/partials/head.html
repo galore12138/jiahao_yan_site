@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 {{ $description := cond (ne .Description "") .Description site.Params.description }}
-{{ $title := cond .IsHome (printf "%s | Academic Website" site.Title) (printf "%s | %s" .Title site.Title) }}
+{{ $siteLabel := cond (eq site.Language.Lang "zh") "学术主页" "Academic Website" }}
+{{ $title := cond .IsHome (printf "%s | %s" site.Title $siteLabel) (printf "%s | %s" .Title site.Title) }}
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
 <meta name="author" content="{{ site.Params.author }}">
@@ -14,13 +15,16 @@
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ "images/photo.jpg" | absURL }}">
-<meta property="og:image:alt" content="Portrait of {{ site.Params.author }}">
-<meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="{{ if eq site.Language.Lang "zh" }}{{ site.Params.author }} 头像{{ else }}Portrait of {{ site.Params.author }}{{ end }}">
+<meta property="og:locale" content="{{ if eq site.Language.Lang "zh" }}zh_CN{{ else }}en_US{{ end }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ "images/photo.jpg" | absURL }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
@@ -32,7 +36,7 @@
   "@type" "Person"
   "name" site.Params.author
   "alternateName" (slice "YAN Jiahao" "Jiahao Yan")
-  "url" site.BaseURL
+  "url" .Permalink
   "image" ("images/photo.jpg" | absURL)
   "email" (printf "mailto:%s" site.Params.email)
   "jobTitle" site.Params.role

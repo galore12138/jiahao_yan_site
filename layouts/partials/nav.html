@@ -1,16 +1,30 @@
 <header class="site-header">
   <nav class="site-nav" aria-label="Primary navigation">
     <a class="brand" href="{{ site.Home.RelPermalink }}">Jiahao YAN</a>
-    <div class="desktop-menu">
-      {{ range site.Menus.main }}
-        <a href="{{ .URL | relURL }}"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
-      {{ end }}
+    <div class="nav-right">
+      <div class="desktop-menu">
+        {{ range site.Menus.main }}
+          <a href="{{ .URL | relURL }}"{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
+        {{ end }}
+      </div>
+      <div class="language-switch" aria-label="Language switcher">
+        {{ range .AllTranslations }}
+          {{ if ne .Language.Lang $.Language.Lang }}
+            <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
     </div>
     <details class="mobile-menu">
       <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
       <div class="mobile-menu-panel">
         {{ range site.Menus.main }}
           <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+        {{ end }}
+        {{ range .AllTranslations }}
+          {{ if ne .Language.Lang $.Language.Lang }}
+            <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
         {{ end }}
       </div>
     </details>

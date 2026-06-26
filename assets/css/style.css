@@ -72,9 +72,22 @@ img { max-width: 100%; }
 
 .brand { color: var(--color-text); font-weight: 750; letter-spacing: -0.02em; }
 .brand:hover { text-decoration: none; }
+.nav-right { display: flex; align-items: center; gap: 1.35rem; }
 .desktop-menu { display: flex; align-items: center; gap: 1.35rem; }
 .desktop-menu a { color: var(--color-text-muted); font-size: 0.92rem; }
 .desktop-menu a:hover { color: var(--color-accent); }
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 0.72rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.language-switch a:hover { border-color: var(--color-accent); text-decoration: none; }
 .mobile-menu { display: none; }
 
 .page-shell {
@@ -124,10 +137,23 @@ img { max-width: 100%; }
 .hero h1 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.9rem, 8vw, 4.7rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: clamp(2.15rem, 5.4vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   font-weight: 500;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 0.7rem;
+  row-gap: 0.2rem;
+}
+
+.hero-name-zh {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  font-size: 0.46em;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--color-text-muted);
 }
 
 .affiliation {
@@ -272,6 +298,7 @@ img { max-width: 100%; }
 
 @media (max-width: 760px) {
   :root { --nav-height: 64px; }
+  .nav-right { display: none; }
   .desktop-menu { display: none; }
   .mobile-menu { display: block; position: relative; }
   .mobile-menu summary {
@@ -314,7 +341,7 @@ img { max-width: 100%; }
 
 @media (max-width: 420px) {
   .page-shell, .site-nav, .footer-inner { width: min(100% - 1.4rem, 820px); }
-  .hero h1 { font-size: 3rem; }
+  .hero h1 { font-size: 2.2rem; justify-content: center; }
   .portrait-wrap, .portrait { width: 185px; height: 185px; }
   .award-item { grid-template-columns: 55px 1fr; }
 }

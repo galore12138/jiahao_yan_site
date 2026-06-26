@@ -1,6 +1,8 @@
 ﻿baseURL: "https://galore12138.github.io/jiahao_yan_site/"
 title: "Jiahao YAN"
 languageCode: "en-us"
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
 enableRobotsTXT: true
 
 params:
@@ -52,3 +54,47 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    title: "Jiahao YAN"
+    params:
+      description: "Jiahao YAN is a PhD Candidate in the School of Management at Northwestern Polytechnical University, researching corporate governance, supply chains, artificial intelligence, and firm behavior."
+      author: "Jiahao YAN"
+      role: "PhD Candidate"
+      school: "School of Management"
+      university: "Northwestern Polytechnical University"
+      tagline: "I study corporate governance related to supply chains and artificial intelligence."
+  zh:
+    languageName: "中文"
+    weight: 2
+    title: "Jiahao YAN 闫家豪"
+    params:
+      description: "闫家豪，西北工业大学管理学院博士研究生，研究方向包括公司治理、供应链、人工智能与企业行为。"
+      author: "Jiahao YAN"
+      role: "博士研究生"
+      school: "管理学院"
+      university: "西北工业大学"
+      tagline: "研究公司治理、供应链与人工智能交叉领域的问题。"
+    menu:
+      main:
+        - name: "关于"
+          url: "/zh/#about"
+          weight: 10
+        - name: "研究"
+          url: "/zh/#research"
+          weight: 20
+        - name: "经历"
+          url: "/zh/#experience"
+          weight: 30
+        - name: "奖励"
+          url: "/zh/#awards"
+          weight: 40
+        - name: "简历"
+          url: "/files/jiahao-yan-cv.pdf"
+          weight: 50
+        - name: "联系"
+          url: "/zh/#contact"
+          weight: 60

@@ -1,5 +1,6 @@
 ---
-title: "Jiahao YAN 焉嘉豪"
+title: "Jiahao YAN"
+chineseName: "闫家豪"
 ---
 
 I am a fourth-year PhD candidate in the School of Management at Northwestern Polytechnical University. My research examines corporate governance at the intersection of supply chains and artificial intelligence, with particular attention to how interfirm relationships and emerging technologies shape firm behavior and performance.
