@@ -1,4 +1,4 @@
-﻿# Jiahao YAN 鈥?Academic Website
+﻿# Jiahao YAN | Academic Website
 
 Personal academic website for Jiahao YAN, built with Hugo and designed for GitHub Pages.
 
