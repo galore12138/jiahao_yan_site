@@ -119,7 +119,7 @@ img { max-width: 100%; }
   height: 260px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: 30% 38%;
+  object-position: 27% 38%;
   background: #fff;
   border: 7px solid var(--color-bg);
   box-shadow: var(--shadow-soft);
